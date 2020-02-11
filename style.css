@@ -1,3 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #03a7e4, #d964ea);
+  color: white;
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+}
+
+.wrapper {
+  position: relative;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.head__input {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  width: 200px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+::placeholder {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.head__submit {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.today {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.today__img {
+  width: 130%;
+}
+
+.today__temp {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.today__press {
+  margin-bottom: 5px;
+}
+
+.today__wind {
+  margin-bottom: 25px;
+}
+
+.forecast {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 3px rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+  margin-top: 30px;
+}
+
+.forecast__day {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  align-items: center;
+}
+
 .today {
   opacity: 0;
   transition: 0.3s;
@@ -7,4 +97,27 @@
   opacity: 0;
   transition: 0.3s;
   transition-delay: 0.6s;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper {
+    margin-top: 130px;
+  }
+
+  .forecast {
+    flex-wrap: nowrap;
+  }
+
+  .head__input {
+    font-size: 40px;
+    width: 300px;
+  }
+
+  ::placeholder {
+    font-size: 40px;
+  }
+
+  .head__submit {
+    font-size: 40px;
+  }
 }

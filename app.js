@@ -1,4 +1,6 @@
+const form = document.querySelector(".head__form");
 const input = document.querySelector(".head__input");
+const submit = document.querySelector(".head__submiy");
 
 //today
 const today = document.querySelector(".today");
@@ -102,6 +104,11 @@ function fill() {
   today.style.opacity = "1";
   forecast.style.opacity = "1";
 }
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  fill();
+});
 
 input.addEventListener("keypress", function(event) {
   if (event.keyCode === 13) {

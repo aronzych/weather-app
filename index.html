@@ -6,17 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Weather APp</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <div class="wrapper">
       <header class="head">
-        <form>
+        <form class="head__form">
           <input
             type="text"
             class="head__input"
             placeholder="Enter a city"
             autocomplete="off"
           />
+          <button type="submit" class="head__submit">
+            <i class="fa fa-search"></i>
+          </button>
         </form>
       </header>
       <section class="today">
