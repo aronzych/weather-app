@@ -64,7 +64,15 @@ function fill() {
       input.value +
       "&APPID=7063b5a6b3ec56b1b07066a804142d51"
   )
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        console.log(response.ok);
+        return response.json();
+      } else {
+        throw new Error("City not found!");
+      }
+    })
+
     .then(data => {
       //today
       todayImg.src = setIcon(data.list[0].weather[0].main);
@@ -75,7 +83,6 @@ function fill() {
       todayWind.innerText = `${data.list[0].wind.speed} m/s`;
 
       //forecast
-      console.log(data);
       forecastDays[0].innerText = setDayName(data.list[8].dt_txt.slice(0, -9));
       forecastImgs[0].src = setIcon(data.list[8].weather[0].main, 0);
       forecastTemps[0].innerHTML = `${Math.round(
@@ -99,10 +106,14 @@ function fill() {
       forecastTemps[3].innerHTML = `${Math.round(
         (data.list[32].main.temp - 273).toFixed(2)
       )} &degC`;
+      today.style.opacity = "1";
+      forecast.style.opacity = "1";
+    })
+    .catch(error => {
+      input.value = "City not found!";
+      today.style.opacity = "0";
+      forecast.style.opacity = "0";
     });
-
-  today.style.opacity = "1";
-  forecast.style.opacity = "1";
 }
 
 form.addEventListener("submit", function(event) {
